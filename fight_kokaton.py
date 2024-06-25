@@ -56,6 +56,7 @@ class Bird:
         self.img = __class__.imgs[(+5, 0)]
         self.rct: pg.Rect = self.img.get_rect()
         self.rct.center = xy
+        self.dire = (+5, 0)  # こうかとんの向きを表すタプル
 
     def change_img(self, num: int, screen: pg.Surface):
         """
@@ -77,11 +78,17 @@ class Bird:
             if key_lst[k]:
                 sum_mv[0] += mv[0]
                 sum_mv[1] += mv[1]
+
+        if sum_mv != [0, 0]:
+            self.dire = tuple(sum_mv)
+            
         self.rct.move_ip(sum_mv)
         if check_bound(self.rct) != (True, True):
             self.rct.move_ip(-sum_mv[0], -sum_mv[1])
+
         if not (sum_mv[0] == 0 and sum_mv[1] == 0):
             self.img = __class__.imgs[tuple(sum_mv)]
+
         screen.blit(self.img, self.rct)
 
 
@@ -163,6 +170,21 @@ class Score:
         """  
         self.img = self.fonto.render(f"スコア: {self.score}", 0, self.color)
         screen.blit(self.img, self.rct)  
+
+
+class Explosion:
+    """
+    爆発エフェクトに関するclass
+    """
+    def __init__(self):
+        """
+        """
+    
+
+    def update(self, screen: pg.Surface):
+        """
+        引数 
+        """  
 
 
 def main():
