@@ -197,7 +197,7 @@ def main():
                 time.sleep(5)
                 return
 
-        for i in range(len(bombs)):
+        for i in range(len(bombs)):  # 200-209までの書き方がレビュー者と違ってた
             for beam in beams[:]:
                 if beam is not None and bombs[i] is not None and bombs[i].rct.colliderect(beam.rct):
                     bombs[i] = None
