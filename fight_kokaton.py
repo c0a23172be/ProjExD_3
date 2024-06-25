@@ -165,6 +165,20 @@ class Score:
         screen.blit(self.img, self.rct)  
 
 
+class Explosion:
+    """
+    爆発エフェクト
+    """
+    def __init__(self):
+        """
+        """
+        
+    def update(self, screen: pg.Surface):
+        """
+        引数 
+        """  
+
+
 def main():
     pg.display.set_caption("たたかえ！こうかとん")
     screen = pg.display.set_mode((WIDTH, HEIGHT))    
