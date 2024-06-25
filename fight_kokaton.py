@@ -161,7 +161,7 @@ class Score:
       　現在のスコアを表示させる
         引数 screen：画面Surface
         """  
-        self.img = self.fonto.render(f"Score: {self.score}", 0, self.color)
+        self.img = self.fonto.render(f"スコア: {self.score}", 0, self.color)
         screen.blit(self.img, self.rct)  
 
 
